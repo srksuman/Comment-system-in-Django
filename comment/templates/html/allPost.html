@@ -1,0 +1,21 @@
+{% extends 'html/core.html' %}
+{% block content %}
+{% comment %} {% for data in all_data  %}
+{{data}}
+{% endfor %} {% endcomment %}
+
+<div class="container">
+<div class="row">
+{% for data in all_data  %}
+<div class="col-md-3 card p-3 mt-4 mx-2">
+<h2>{{data.title}}</h2>
+<p>
+{{data.description |safe |slice:":120"}}
+</p>
+
+<a href="{% url 'singlepost' data.id %}" class="btn btn-dark btn-sm ">View All</a>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock content %}
